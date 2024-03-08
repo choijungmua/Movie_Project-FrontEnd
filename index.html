@@ -7,17 +7,23 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
-        const Title = () => <h3 id="title" onMouseEnter={() => console.log("mouseEnter")}> HelloI'mtitle</h3>
-        const Btn = () => <button style={{backgroundColor:"tomato",}} onClick={()=>console.log("btn click")}> Click me</button> 
-
-        const Container = () =><div> 
-            <Title />
-            <Btn />
+        let counter = 0;
+        function countUp(){
+            counter = counter + 1;
+            render();
+        }
+        function render(){
+        ReactDOM.render(<Container/>, root);
+            
+        }
+        const Container = () => (
+            <div>
+            <h3>Total Click : {counter}</h3>
+            <button onClick={countUp}>Click me</button>
             </div>
-        ReactDOM.render(<Container />, root);
-        // react의 요약 / JSX문법을 사용할때는 앞 글자가 항상 대문자 이여야 한다.
-        // babel은 자바스크립트 컴파일러이다.
-        // arrow function은 const Element = () => <tag>로 사용한다.
+
+        );
+        render();
     </script>
 </body>
 </html>
