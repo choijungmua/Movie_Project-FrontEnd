@@ -9,23 +9,35 @@
         // const [count, setCount] = useState([]);
         const root = document.getElementById("root");
         const App = () => {
-            const [min, setMin] = React.useState(min);
+            const [amount, setaMount] = React.useState(amount);
+            const [invert, setInvert] = React.useState(false);
             const onChange = (e) =>{ 
-                // setMin((result) = (result) + 1 )
-                setMin(e.target.value);
-                }
+                setaMount(e.target.value);
+            }
 
+            const onFlip = () => {
+                setInvert((current) => !current);
+                handleReset();
+        }
+            const handleReset = () => {
+                setaMount(0);
+            }
             return (
                 
             <div>
                 <h1>Converter</h1>
                 
-                <label htmlFor="minutes">Minutes</label>
-                <input id="minutes" value={min} onChange = {onChange} placeholder="Minutes" type="number" />
-                <h4>You are change {min}</h4>
-                <label htmlFor="hours">Hours</label>
-                <input id="hours"placeholder="Hours" type="number"/>
-                </div>
+                <div>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input id="minutes" value={invert ? amount*60 : amount} onChange = {onChange} placeholder="Minutes" type="number" disabled = {invert} />
+                    </div>
+                    <div>
+                        <label htmlFor="hours">Hours</label>
+                        <input id="hours" onChange = {onChange} value={invert ? amount : Math.round(amount/60)}placeholder="Hours" type="number" disabled = {!invert}/>
+                        </div>
+                        <button onClick = {handleReset}>reset</button>
+                        <button onClick = {onFlip}>{invert ?  "Turn back" : "Invert"}</button>
+                        </div>
                 )
             }
         ReactDOM.render(<App/>, root);
