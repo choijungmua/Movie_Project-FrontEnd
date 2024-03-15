@@ -2,88 +2,45 @@
 
 <body>
     <div id="root"></div>
-    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
     <script type="text/babel">
+        function Btn({valueProps, big, onClick, fontSize = 32}) {
+            console.log(valueProps, "was render");
+            return (
+                <button 
+                onClick = {onClick}
+                style={{
+                backgroundColor : "tomato",
+                color:"white",
+                padding:"10px 20px",
+                borderRadius:10,
+                border: 0,
+                fontSize: big ? 18 : 16,
+                fontSize
+            }}
+            >
+            {valueProps}</button>)
+        }
+        function ConfirmBtn() {
+            return (<button>Confirm</button>)
+        }
+        Btn.propTypes = {
+            valueProps: PropTypes.string,
+            fontSize: PropTypes.number,
+        }
         const root = document.getElementById("root");
-        //시간을 분으로 바꾸기
-        const MinutesToHours = () => {
-            const [amount, setAmount] = React.useState();
-            const [inverted, setInvert] = React.useState(false);
-            const onChange = (e) =>{ 
-                setAmount(e.target.value);
-                }
-
-                const reset = () =>{
-                    setAmount(0);
-                }
-                const invert = () =>{
-                    setInvert((result) => !(result))
-                    reset();
-                }
-            return (
-                
-            <div>
-                <div>
-                    <label htmlFor="minutes">Minutes</label>
-                    <input id="minutes" value={inverted ? amount*60 : amount} onChange = {onChange} placeholder="Minutes" type="number" disabled = {inverted} />
-                    </div>
-                    <div>
-                        <label htmlFor="hours">Hours</label>
-                        <input id="hours" onChange = {onChange}value={inverted ? amount : Math.round(amount/60)}placeholder="Hours" type="number" disabled = {!inverted}/>
-                        </div>
-                        <button onClick={reset}>Reset</button>
-                        <button onClick={invert}>{invert ? "invert" : "reset"}</button>
-                        </div>
-                )
-            }
-//KmToMiles
-            const KmToMiles = () => {
-                const [res, setRes] = React.useState(res);
-                const [invert, setInvert] = React.useState(false);
-                const onChange = (e) => {
-                    setRes(e.target.value);
-                }
-                const reset = () => { setRes(0);}
-                const handleInvert = () => { setInvert((result) => (!result)); reset()}
+        const MemorizedBtn = React.memo(Btn);
+        const App = () => {
+                const [value, setValue] = React.useState("Save Changes")
+                const changeValue = () => setValue("Revert Changes")
                 return (
-                <>
                 <div>
-                    <label for="KM">KM</label>
-                    <input id="KM" type="number" value={invert ? res*1.609 : res} onChange={onChange} placeholder={"킬로미터를 입력해주세요"} disabled = {invert}></input>
-                    </div>
-                <div>
-                    <label for="Miles">Miles</label>
-                    <input id="Miles" onChange ={onChange}type="number" value={invert ? res : res*0.621371} placeholder={"마일을 입력해주세요"} disabled = {!invert}></input>
-                    </div>
-                    <button onClick={reset}>reset</button>
-                    <button onClick={handleInvert}>{invert ? "invert" : "reset"}</button>
-                </>
-                )
-            }
-//
-
-            const App = () => {
-         const [index, setIndex] = React.useState(1);
-         const onSelect = (e) => {
-            setIndex(e.target.value);
-
-         }
-         console.log("index state ", index)
-            return (
-                
-            <div>
-                <h1>Converter</h1>
-                <select onChange={onSelect} value={index}>
-                    <option value="xx">nopes</option>
-                    <option value="0">Minutes & Hours</option>
-                    <option value="1">KM & Miles</option>
-                    </select>
-                    {index === "xx" ? "nope" : null}
-                    {index === "0" ? <MinutesToHours/> : null}
-                    {index === "1" ? <KmToMiles/> : null}
-                        </div>
+                <Btn valueProps="Save Changes" onClick={changeValue} fontSize={18}big={true}/>
+                <Btn valueProps={14} big={false}/>
+                </div>
                 )
             }
         ReactDOM.render(<App/>, root);
