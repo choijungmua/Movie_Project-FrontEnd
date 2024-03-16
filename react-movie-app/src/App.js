@@ -1,32 +1,41 @@
 import { useState, useEffect } from "react";
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyword] = useState("");
+  const [showing, setShowing] = useState(false);
+
+  // function Hello() {
+  //   useEffect(() => {
+  //     console.log("created :D");
+  //     return () => console.log("destroyed :<");
+  //   }, []);
+  //   return <h1>Hello</h1>;
+  // }
+  // function Hello() {
+  //   function hiFn() {
+  //     console.log("created :D");
+  //     return byeFn;
+  //   }
+  //   function byeFn() {
+  //     console.log("destroyed :<");
+  //   }
+  //   useEffect(hiFn, []);
+  //   return <h1>Hello</h1>;
+  // }
+  const Hello = () => {
+    useEffect(() => {
+      console.log("create");
+      return () => {
+        console.log("bye");
+      };
+    });
+    return <h1>Hello!</h1>;
+  };
   const onClick = () => {
-    setCounter((res) => res + 1);
+    setShowing((prev) => !prev);
   };
-  const onChange = (e) => {
-    setKeyword(e.target.value);
-  };
-  useEffect(() => {
-    console.log("keyword change");
-  }, [keyword]);
-  useEffect(() => {
-    console.log("counter change");
-  }, [counter]);
-  useEffect(() => {
-    console.log("counter and keyword change");
-  }, [keyword, counter]);
   return (
     <div>
-      <input
-        value={keyword}
-        onChange={onChange}
-        type="text"
-        placeholder="Search here... "
-      />
-      <h1>{`버튼 클릿 횟수 : ${counter}`}</h1>
-      <button onClick={onClick}>Button Click</button>
+      {showing ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </div>
   );
 }
