@@ -1,41 +1,29 @@
 import { useState, useEffect } from "react";
 function App() {
-  const [showing, setShowing] = useState(false);
-
-  // function Hello() {
-  //   useEffect(() => {
-  //     console.log("created :D");
-  //     return () => console.log("destroyed :<");
-  //   }, []);
-  //   return <h1>Hello</h1>;
-  // }
-  // function Hello() {
-  //   function hiFn() {
-  //     console.log("created :D");
-  //     return byeFn;
-  //   }
-  //   function byeFn() {
-  //     console.log("destroyed :<");
-  //   }
-  //   useEffect(hiFn, []);
-  //   return <h1>Hello</h1>;
-  // }
-  const Hello = () => {
-    useEffect(() => {
-      console.log("create");
-      return () => {
-        console.log("bye");
-      };
-    });
-    return <h1>Hello!</h1>;
+  const [toDo, setToDo] = useState("");
+  const [toDos, setToDos] = useState([]);
+  const onChange = (e) => setToDo(e.target.value);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (toDo === "") {
+      return;
+    }
+    setToDos((currentArray) => [toDo, ...currentArray]);
+    setToDo("");
   };
-  const onClick = () => {
-    setShowing((prev) => !prev);
-  };
+  console.log(toDos);
   return (
     <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+      <h1>My To Dos ToDos({toDos.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          value={toDo}
+          type="text"
+          placeholder="Write your to do... "
+        />
+        <button>button</button>
+      </form>
     </div>
   );
 }
