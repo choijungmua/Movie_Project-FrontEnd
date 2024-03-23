@@ -9,12 +9,12 @@ function Detail() {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
-    setMovies(json.data.movie);
+    setMovies(json.data.movie.data);
     setLoading(false);
-    console.log(json);
+    
+    console.log(json.data.movie);
   };
-  console.log(movies);
-
+  
   useEffect(() => {
     getMovie();
   }, []);
