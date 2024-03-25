@@ -5,19 +5,19 @@ function Detail() {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const getMovie = async () => {
+  const getMovies = async () => {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
-    setMovies(json.data.movie);
+    setMovies([json.data.movie]);
     setLoading(false);
     console.log(json);
   };
-  console.log(movies);
 
   useEffect(() => {
-    getMovie();
+    getMovies();
   }, []);
+
   return (
     <div>
       {loading ? (
