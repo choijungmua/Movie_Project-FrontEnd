@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/MainMovie";
 
-function Home({ genres }) {
+function Genre({ genres }) {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1); // 페이지 번호 초기값을 1로 설정
@@ -12,7 +12,7 @@ function Home({ genres }) {
 
     try {
       const response = await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=download_count&page=${pageNum}`
+        `https://yts.mx/api/v2/list_movies.json?genre=${genres}&sort_by=download_count&page=${pageNum}`
       );
       const data = await response.json();
 
@@ -77,4 +77,4 @@ function Home({ genres }) {
   );
 }
 
-export default Home;
+export default Genre;

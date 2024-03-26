@@ -1,0 +1,26 @@
+.container {
+  display: inline-block;
+  align-items: center;
+  .imgWrap {
+    margin-top: 4rem;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      transition: 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    .title {
+      color: white;
+      text-align: center;
+      width: 230px;
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 1.2rem;
+    }
+  }
+}
