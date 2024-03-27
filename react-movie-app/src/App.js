@@ -3,7 +3,7 @@ import Home from "./routes/Home";
 import Detail from "./routes/Details";
 import Header from "./components/Header.js";
 import Genre from "./routes/Genre.js";
-import "./App.css";
+import "./App.scss";
 import { useState } from "react";
 function App() {
   const [genres, setGenres] = useState(["Action", "Sci-Fi", "Drama"]);

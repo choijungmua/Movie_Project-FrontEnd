@@ -1,26 +1,112 @@
-.container {
-  display: inline-block;
-  align-items: center;
-  .imgWrap {
-    margin-top: 4rem;
+@import "./utils.scss";
 
-    img {
+//브라우저 사이즈 1024px 이상일 때
+@include desktop {
+  .container {
+    .bigContainer {
+      display: flex;
+      margin: 0 auto;
       max-width: 100%;
-      height: auto;
-      transition: 0.3s ease;
-      &:hover {
-        transform: scale(1.2);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    display: inline-block;
+    align-items: center;
+    .imgWrap {
+      margin-top: 4rem;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        transition: 0.3s ease;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      .title {
+        color: white;
+        text-align: center;
+        width: 230px;
+        padding: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 1.2rem;
       }
     }
-    .title {
-      color: white;
-      text-align: center;
-      width: 230px;
-      padding: 10px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      font-size: 1.2rem;
+  }
+}
+
+/*브라우저 사이즈767px이하일때*/
+@include mobile {
+  .bigContainer {
+    display: flex;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .container {
+    display: inline-block;
+    .imgWrap {
+      margin-top: 4rem;
+      width: 161px;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        transition: 0.3s ease;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      .title {
+        color: white;
+        text-align: center;
+        width: 161px;
+        padding: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/*브라우저 사이즈767px이하일때*/
+@include tablet {
+  .bigContainer {
+    display: flex;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .container {
+    display: inline-block;
+
+    .imgWrap {
+      margin-top: 4rem;
+      width: 161px;
+      img {
+        max-width: 100%;
+        height: auto;
+        transition: 0.3s ease;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      .title {
+        color: white;
+        text-align: center;
+        width: 161px;
+        padding: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 1.2rem;
+      }
     }
   }
 }

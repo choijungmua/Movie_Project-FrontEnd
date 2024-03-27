@@ -15,17 +15,6 @@ function Movie({ id, coverImg, title, summary = "", genres }) {
           <img src={coverImg} alt={title} />
           <p className="title">{title}</p>
         </StyledLink>
-        {/* <h2>
-        <Link basename={process.env.PUBLIC_URL} to={`/movie/${id}`}>
-          {title}
-        </Link>
-      </h2> */}
-        {/* <p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p> */}
-        {/* <ul>
-        {genres.map((g) => (
-          <li key={g}>{g}</li>
-        ))}
-      </ul> */}
       </div>
     </div>
   );

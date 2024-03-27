@@ -1,0 +1,137 @@
+@import "./utils.scss";
+
+//브라우저 사이즈 1024px 이상일 때
+@include desktop {
+  header {
+    margin-bottom: 100px;
+    nav {
+      background-color: #000;
+      top: 0;
+      width: 100%;
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      .hambug {
+        display: none;
+      }
+    }
+    ul {
+      font-weight: 600;
+      display: flex;
+
+      li {
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 14px 20px;
+        margin-right: 2rem;
+      }
+    }
+  }
+  li {
+    transition: 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+/*브라우저 사이즈767px이하일때*/
+@include tablet {
+  header {
+    margin-bottom: 100px;
+    nav {
+      background-color: #000;
+      top: 0;
+      width: 100%;
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      .hambug {
+        display: none;
+      }
+    }
+    ul {
+      font-weight: 600;
+      display: flex;
+      li {
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 14px 20px;
+        margin-right: 2rem;
+      }
+    }
+  }
+  li {
+    transition: 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+/*브라우저 사이즈767px이하일때*/
+@include mobile {
+  header {
+    margin-bottom: 100px;
+    .menu {
+      background-color: #000;
+      top: 0;
+      width: 100%;
+      position: fixed;
+      align-items: center;
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hambug {
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+      }
+
+      ul {
+        font-weight: 600;
+        display: flex;
+        li {
+          display: none;
+        }
+      }
+    }
+  }
+  .menu-Open {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hambug {
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+    }
+    ul {
+      font-weight: 600;
+      text-align: center;
+      margin: 10px auto;
+      li {
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 14px 20px;
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  li {
+    transition: 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
