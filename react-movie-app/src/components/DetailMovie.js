@@ -43,7 +43,7 @@ function DetailMovie({
             <h1>{title}</h1>
             <p>{intro}</p>
             <p>{summary}</p>
-            <p>
+            <p className="time">
               {year} / {runtime}min
             </p>
             <ul>{genre && genre.map((g) => <li key={g}>{g}</li>)}</ul>
