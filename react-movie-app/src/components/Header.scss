@@ -37,7 +37,7 @@
     }
   }
 }
-/*브라우저 사이즈767px이하일때*/
+/*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
 @include tablet {
   header {
     margin-bottom: 100px;

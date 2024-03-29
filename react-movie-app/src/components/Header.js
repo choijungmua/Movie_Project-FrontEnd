@@ -11,7 +11,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleHambug = (e) => {
     e.preventDefault();
-    setMenuOpen(!menuOpen);
+    setMenuOpen(menuOpen);
   };
   return (
     <div>

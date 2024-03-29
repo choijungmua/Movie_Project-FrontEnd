@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import "./DetailMovie.scss";
+import { useEffect, useState } from "react";
 function DetailMovie({
   background,
   coverImg,
@@ -14,57 +15,27 @@ function DetailMovie({
   runtime,
 }) {
   const Wrap = styled.div`
-    width: 100vw;
-    height: calc(100vh - 110px); /* 헤더의 높이를 제외한 높이 설정 */
     background-image: ${(props) => `url(${props.background})`};
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    position: relative;
-    .smContainer {
-      position: absolute;
-      top: 0px;
-      left: 0;
-      width: 100%;
-      height: calc(100vh - 100px);
-      background-color: rgba(0, 0, 0, 0.3);
-      .contents {
-        display: flex;
-        color: white;
-
-        img {
-          width: 25%;
-          top: 50%;
-          margin: 60px auto;
-        }
-        .text {
-          width: 55%;
-          margin-top: 80px;
-          font-weight: 500;
-          h1 {
-            font-size: 40px;
-            font-weight: 900;
-          }
-          p {
-            line-height: 1.8em;
-            margin-top: 3em;
-            font-size: 20px;
-            width: 70%;
-          }
-          ul {
-            display: flex;
-          }
-          li {
-            margin-right: 20px;
-          }
-        }
-      }
+    @media screen and (max-width: 767px) {
+      background-image: ${(props) => `url(${props.coverImg})`};
     }
   `;
+  const [imgChange, setImgChange] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setImgChange(window.innerWidth <= 767);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <Wrap background={background}>
-      <div className="bg"></div>
+    <Wrap
+      background={!imgChange ? background : coverImg}
+      className="containerDetail"
+    >
       <div className="smContainer">
         <div className="contents">
           <img src={image} alt="#" />
