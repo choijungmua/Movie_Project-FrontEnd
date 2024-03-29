@@ -3,7 +3,6 @@
 //브라우저 사이즈 1024px 이상일 때
 @include desktop {
   header {
-    margin-bottom: 100px;
     nav {
       background-color: #000;
       top: 0;
@@ -99,7 +98,7 @@
         display: flex;
         li {
           display: none;
-          margin: 0;
+
           padding: 0;
         }
       }
@@ -119,7 +118,6 @@
     ul {
       font-weight: 600;
       text-align: center;
-      margin: 10px auto;
       li {
         color: #fff;
         font-size: 1.2rem;

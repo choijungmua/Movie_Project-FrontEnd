@@ -11,12 +11,12 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleHambug = (e) => {
     e.preventDefault();
-    setMenuOpen(menuOpen);
+    setMenuOpen(!menuOpen);
   };
   return (
     <div>
       <header>
-        <nav className={menuOpen ? "menu" : "menu-Open"}>
+        <nav className={!menuOpen ? "menu" : "menu-Open"}>
           <div className="container">
             <Link basename={process.env.PUBLIC_URL} to="/">
               <img
