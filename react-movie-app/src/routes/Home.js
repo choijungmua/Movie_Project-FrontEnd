@@ -66,8 +66,6 @@ function Home({ genres }) {
               id={movies.id}
               coverImg={movies.medium_cover_image}
               title={movies.title}
-              summary={movies.summary}
-              genres={movies.genres}
             />
           ))}
         </div>

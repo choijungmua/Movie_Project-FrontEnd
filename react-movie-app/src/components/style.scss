@@ -2,14 +2,14 @@
 
 //브라우저 사이즈 1024px 이상일 때
 @include desktop {
+  .bigContainer {
+    display: flex;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   .container {
-    .bigContainer {
-      display: flex;
-      margin: 0 auto;
-      max-width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
     display: inline-block;
     align-items: center;
     .imgWrap {

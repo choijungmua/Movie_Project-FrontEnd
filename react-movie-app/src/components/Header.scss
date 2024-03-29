@@ -85,8 +85,8 @@
       align-items: center;
       .container {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
       }
       .hambug {
         width: 50px;
@@ -99,6 +99,8 @@
         display: flex;
         li {
           display: none;
+          margin: 0;
+          padding: 0;
         }
       }
     }
@@ -122,7 +124,6 @@
         color: #fff;
         font-size: 1.2rem;
         padding: 14px 20px;
-        margin-right: 2rem;
       }
     }
   }
