@@ -1,9 +1,10 @@
 <div align="center">
+
   
 [![MUFLIX](https://github.com/user-attachments/assets/9759cb67-acad-4080-9f74-863e0d48b737)
 ](https://choijungmua.github.io/Movie_Project-FrontEnd/)
 
-공공 API로 영화 데이터를 받아온 사이트
+[공공 API로 영화 데이터를 받아온 사이트](https://choijungmua.github.io/Movie_Project-FrontEnd/)
 
 
 
