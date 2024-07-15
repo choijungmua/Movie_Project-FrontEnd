@@ -1,10 +1,22 @@
-## React와 Sass, Styled Component를 위주로 제작한 웹입니다.
-<br />
-Git으로 배포하였으며, 사이트 주소는 아래에서 확인 하실 수 있습니다.
+<div align="center">
+  
+[![MUFLIX](https://github.com/user-attachments/assets/9759cb67-acad-4080-9f74-863e0d48b737)
+](https://choijungmua.github.io/Movie_Project-FrontEnd/)
 
-[ 수정중 ]
-### 기능
-✔️ 영화 데이터 받아오기
-✔️ 영화 데이터 상세 정보 확인하기
-✔️ Axios
-✔️ Git으로 배포
+공공 API로 영화 데이터를 받아온 사이트
+
+
+
+[공공 API 사이트](https://yts.mx/)
+
+
+<!-- Skills -->
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=fff)](https://reactjs.org/)
+
+[![SASS](https://img.shields.io/badge/SASS-CC6699?style=flat-square&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![Recoil](https://img.shields.io/badge/Recoil-3578E5?style=flat-square&logo=recoil&logoColor=white)](https://recoiljs.org/)
+[![styled-components](https://img.shields.io/badge/styled--components-DB7093?style=flat-square&logo=styled-components&logoColor=white)](https://styled-components.com/)
+</div>
+
+
